@@ -3,3 +3,6 @@ def xor(a, b):
 
 def text_to_binary(text):
     return ''.join(format(ord(c), '08b') for c in text)
+
+def split_blocks(binary, size=16):
+    return [binary[i:i+size] for i in range(0, len(binary), size)]
