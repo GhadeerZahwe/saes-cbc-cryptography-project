@@ -1,3 +1,6 @@
+from utils import xor
+from saes import encrypt_block, decrypt_block
+
 def encrypt_cbc(blocks, key, iv):
     ciphertext = []
     prev = iv

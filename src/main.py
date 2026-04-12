@@ -1,12 +1,31 @@
+from utils import text_to_binary, binary_to_text, split_blocks
+from cbc import encrypt_cbc, decrypt_cbc
+from bruteforce import brute_force
+
 plaintext = "HELLO"
 key = "1010011100111011"
 iv = "1100101011110001"
 
+# Convert to binary
 binary = text_to_binary(plaintext)
+
+# Split into blocks
 blocks = split_blocks(binary)
 
-ciphertext = encrypt_cbc(blocks, key, iv)
-decrypted = decrypt_cbc(ciphertext, key, iv)
+print("Binary blocks:", blocks)
 
+# Encrypt
+ciphertext = encrypt_cbc(blocks, key, iv)
 print("Ciphertext:", ciphertext)
-print("Decrypted:", decrypted)
+
+# Decrypt
+decrypted_blocks = decrypt_cbc(ciphertext, key, iv)
+
+# Convert back to text
+decrypted_binary = ''.join(decrypted_blocks)
+decrypted_text = binary_to_text(decrypted_binary)
+
+print("Decrypted:", decrypted_text)
+
+# Brute force attack
+brute_force(ciphertext, iv, blocks)
