@@ -17,3 +17,11 @@ def add_round_key(state, key):
 
 def key_expansion(key):
     return key, key  # simplified version for implementation
+
+def encrypt_block(block, key):
+    state = add_round_key(block, key)
+    state = sub_nib(state)
+    state = shift_rows(state)
+    state = mix_columns(state)
+    state = add_round_key(state, key)
+    return state
