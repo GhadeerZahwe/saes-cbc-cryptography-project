@@ -11,3 +11,6 @@ def mix_columns(state):
         state[2] ^ state[0],
         state[3] ^ state[1]
     ]
+
+def add_round_key(state, key):
+    return [s ^ k for s, k in zip(state, key)]
