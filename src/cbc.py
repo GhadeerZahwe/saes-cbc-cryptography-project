@@ -9,3 +9,15 @@ def encrypt_cbc(blocks, key, iv):
         prev = encrypted
 
     return ciphertext
+
+def decrypt_cbc(ciphertext_blocks, key, iv):
+    plaintext = []
+    prev = iv
+
+    for block in ciphertext_blocks:
+        decrypted = decrypt_block(block, key)
+        plain_block = xor(decrypted, prev)
+        plaintext.append(plain_block)
+        prev = block
+
+    return plaintext
