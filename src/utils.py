@@ -12,3 +12,15 @@ def split_blocks(binary, size=16):
     while len(binary) % size != 0:
         binary += '0'   # padding
     return [binary[i:i+size] for i in range(0, len(binary), size)]
+
+def file_to_binary(file_path):
+    with open(file_path, "rb") as f:
+        data = f.read()
+    return ''.join(format(byte, '08b') for byte in data)
+
+def binary_to_file(binary, output_path):
+    bytes_list = [binary[i:i+8] for i in range(0, len(binary), 8)]
+    byte_data = bytearray(int(b, 2) for b in bytes_list)
+    
+    with open(output_path, "wb") as f:
+        f.write(byte_data)
