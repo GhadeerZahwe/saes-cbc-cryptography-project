@@ -58,3 +58,33 @@ print("Image binary length:", len(binary_image))
 print("Number of blocks:", len(image_blocks))
 print("Sample encrypted image blocks:", cipher_image[:5])
 
+print("\n--- VIDEO TEST ---")
+
+video_path = "../video.mp4"
+output_video_path = "../decrypted_video.mp4"
+
+# Convert video to binary
+binary_video = file_to_binary(video_path)
+print("Video binary length:", len(binary_video))
+
+# Split into blocks
+video_blocks = split_blocks(binary_video)
+print("Number of video blocks:", len(video_blocks))
+
+# Encrypt
+cipher_video = encrypt_cbc(video_blocks, key, iv)
+
+# Show sample ciphertext
+print("Sample encrypted video blocks:", cipher_video[:5])
+
+# Decrypt
+decrypted_video_blocks = decrypt_cbc(cipher_video, key, iv)
+
+# Convert back to binary
+decrypted_video_binary = ''.join(decrypted_video_blocks)
+
+# Save reconstructed video
+binary_to_file(decrypted_video_binary, output_video_path)
+
+print("Video encryption and decryption completed.")
+print("Decrypted video saved as:", output_video_path)
