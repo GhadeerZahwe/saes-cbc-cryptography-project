@@ -1,6 +1,7 @@
 from utils import text_to_binary, binary_to_text, split_blocks, file_to_binary, binary_to_file
 from cbc import encrypt_cbc, decrypt_cbc
 from bruteforce import brute_force
+from step4_attack import attack_other_group
 
 plaintext = "HELLO"
 key = "1010011100111011"
