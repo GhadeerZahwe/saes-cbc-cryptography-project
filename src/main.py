@@ -1,4 +1,4 @@
-from utils import text_to_binary, binary_to_text, split_blocks
+from utils import text_to_binary, binary_to_text, split_blocks, file_to_binary, binary_to_file
 from cbc import encrypt_cbc, decrypt_cbc
 from bruteforce import brute_force
 
@@ -54,3 +54,7 @@ decrypted_binary = ''.join(decrypted_blocks)
 binary_to_file(decrypted_binary, output_path)
 
 print("Image encryption and decryption completed.")
+print("Image binary length:", len(binary_image))
+print("Number of blocks:", len(image_blocks))
+print("Sample encrypted image blocks:", cipher_image[:5])
+
