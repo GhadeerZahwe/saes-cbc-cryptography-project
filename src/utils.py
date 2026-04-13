@@ -8,9 +8,16 @@ def binary_to_text(binary):
     chars = [binary[i:i+8] for i in range(0, len(binary), 8)]
     return ''.join(chr(int(c, 2)) for c in chars)
 
+# def split_blocks(binary, size=16):
+#     while len(binary) % size != 0:
+#         binary += '0'   # padding
+#     return [binary[i:i+size] for i in range(0, len(binary), size)]
+
 def split_blocks(binary, size=16):
+    # padding first
     while len(binary) % size != 0:
-        binary += '0'   # padding
+        binary += '0'
+
     return [binary[i:i+size] for i in range(0, len(binary), size)]
 
 def file_to_binary(file_path):
@@ -25,3 +32,11 @@ def binary_to_file(binary, output_path):
 
     with open(output_path, "wb") as f:
         f.write(byte_data)
+
+def pad16(binary):
+    while len(binary) % 16 != 0:
+        binary += '0'
+    return binary
+
+def safe16(block):
+    return block[:16].ljust(16, '0')
