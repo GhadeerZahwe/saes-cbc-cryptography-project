@@ -89,3 +89,17 @@ binary_to_file(decrypted_video_binary, output_video_path)
 
 print("Video encryption and decryption completed.")
 print("Decrypted video saved as:", output_video_path)
+
+print("\n--- STEP 4: OTHER GROUP ATTACK ---")
+
+# Example ciphertext from another group (you simulate or use given one)
+other_ciphertext = [
+    ['1010101010101010', '1100110011001100', '1111000011110000']
+]
+
+other_iv = "1100101011110001"
+
+# IMPORTANT: you need plaintext structure assumption OR known blocks
+known_plaintext = blocks  # for testing (replace later with real group data)
+
+attack_other_group(other_ciphertext, other_iv, known_plaintext)
