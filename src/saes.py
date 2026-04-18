@@ -38,34 +38,4 @@ def key_expansion(key):
     ]
 
 
-# ---------------- ENCRYPT ----------------
-def encrypt_block(block, key):
-    k = key_expansion(key)
-
-    state = add_round_key(block, k[0])
-    state = sub_nibbles(state)
-    state = shift_rows(state)
-
-    state = add_round_key(state, k[1])
-    state = sub_nibbles(state)
-
-    state = add_round_key(state, k[2])
-
-    return state
-
-
-# ---------------- DECRYPT ----------------
-def decrypt_block(block, key):
-    k = key_expansion(key)
-
-    state = add_round_key(block, k[2])
-    state = inv_sub_nibbles(state)
-
-    state = add_round_key(state, k[1])
-    state = inv_shift_rows(state)
-
-    state = inv_sub_nibbles(state)
-
-    state = add_round_key(state, k[0])
-
-    return state
+# TODO
