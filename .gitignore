@@ -36,9 +36,9 @@ Thumbs.db
 # ----------------------
 # Output files (IMPORTANT for your project)
 # ----------------------
-decrypted_*.png
+decrypted_image*.png
 decrypted_*.jpg
-decrypted_*.mp4
+decrypted_video*.mp4
 encrypted_*.png
 encrypted_*.mp4
 
