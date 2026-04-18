@@ -60,7 +60,20 @@ print("Image encryption done.")
 # -------------------------
 # VIDEO TEST
 # -------------------------
+print("\n--- VIDEO TEST ---")
 
+video_path = "../assets/video.mp4"
+output_video_path = "../decrypted_video.mp4"
+
+binary_video = file_to_binary(video_path)
+video_blocks = split_blocks(binary_video)
+
+cipher_video = encrypt_cbc(video_blocks, key, iv)
+decrypted_video_blocks = decrypt_cbc(cipher_video, key, iv)
+
+binary_to_file("".join(decrypted_video_blocks), output_video_path)
+
+print("Video encryption done.")
 
 
 # -------------------------
