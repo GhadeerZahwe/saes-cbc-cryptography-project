@@ -43,7 +43,7 @@ brute_force(ciphertext, iv, blocks[:len(blocks)])
 # -------------------------
 print("\n--- IMAGE TEST ---")
 
-image_path = "../image.png"
+image_path = "../assets/image.png"
 output_path = "../decrypted_image.png"
 
 binary_image = file_to_binary(image_path)
@@ -62,7 +62,7 @@ print("Image encryption done.")
 # -------------------------
 print("\n--- VIDEO TEST ---")
 
-video_path = "../video.mp4"
+video_path = "../assets/video.mp4"
 output_video_path = "../decrypted_video.mp4"
 
 binary_video = file_to_binary(video_path)
