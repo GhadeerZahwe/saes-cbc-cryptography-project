@@ -1,0 +1,55 @@
+# ----------------------
+# Python cache & compiled files
+# ----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ----------------------
+# Virtual environments
+# ----------------------
+venv/
+env/
+.venv/
+
+# ----------------------
+# IDE / Editor files
+# ----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------
+# OS files
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Logs & temp files
+# ----------------------
+*.log
+*.tmp
+
+# ----------------------
+# Output files (IMPORTANT for your project)
+# ----------------------
+decrypted_*.png
+decrypted_*.jpg
+decrypted_*.mp4
+encrypted_*.png
+encrypted_*.mp4
+
+# ----------------------
+# Large files (optional)
+# ----------------------
+*.zip
+*.rar
+*.7z
+
+# ----------------------
+# Python environment config
+# ----------------------
+.env
