@@ -8,6 +8,10 @@ def attack_other_group(ciphertext, iv, known_plaintext):
 
         decrypted_blocks = decrypt_cbc(ciphertext, key_bin, iv)
 
-       
+        if decrypted_blocks == known_plaintext:
+            print("\n✔ KEY RECOVERED SUCCESSFULLY")
+            print("Recovered Key:", key_bin)
+            return key_bin
+
     print("Key not found")
     return None
